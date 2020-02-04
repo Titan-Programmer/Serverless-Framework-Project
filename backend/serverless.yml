@@ -4,6 +4,7 @@ service:
 plugins:
   - serverless-webpack
   - serverless-iam-roles-per-function
+  - serverless-reqvalidator-plugin
 
 custom:
   documentation:
@@ -84,6 +85,9 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
+          request:
+            schema:
+              application/json: ${file(src/models/create-todo-request.json)}
     iamRoleStatements:
       - Effect: Allow
         Action: 
