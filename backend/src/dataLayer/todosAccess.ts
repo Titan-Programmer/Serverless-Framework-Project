@@ -1,7 +1,6 @@
 import * as AWS from 'aws-sdk'
 import { DocumentClient } from 'aws-sdk/clients/dynamodb'
 import { TodoItem } from '../models/TodoItem'
-//import { TodoImageItem } from '../models/TodoImageItem'
 
 export class TodosAccess {
 
@@ -11,7 +10,6 @@ export class TodosAccess {
         private readonly todosTable = process.env.TODOS_TABLE,
         private readonly todosUserIndex = process.env.TODOS_USER_ID_INDEX,
         private readonly todosIdIndex = process.env.TODOS_ID_INDEX,
-        //private readonly imagesTable = process.env.IMAGES_TABLE,
         private readonly bucketName = process.env.IMAGES_S3_BUCKET) { }        
 
     async getAllTodos(userId: string) {
